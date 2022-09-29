@@ -100,4 +100,17 @@ public class Bejegyzesek {
         String tartalom = sc.nextLine();
         this.bejegyzesek.get(1).setTartalom(tartalom);
     }
+
+    // 3.feladat függvényei:
+
+    public int legnepszerubb(){
+        int max = 0;
+        for (int i = 0; i < this.bejegyzesek.size(); i++) {
+            if (this.bejegyzesek.get(i).getLikeok()>this.bejegyzesek.get(max).getLikeok()){
+                max = i;
+            }
+        }
+        return this.bejegyzesek.get(max).getLikeok();
+    }
+
 }

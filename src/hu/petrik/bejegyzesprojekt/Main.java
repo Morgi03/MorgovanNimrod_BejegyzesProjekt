@@ -28,5 +28,6 @@ public class Main {
         bejegyzesLista.masodikTartalomModositasa();
         System.out.println("\nA végleges lista:\n");
         bejegyzesLista.kiir();
+        System.out.printf("\nA legnépszerűbb bejegyzés lájkjainak száma: %d",bejegyzesLista.legnepszerubb());
     }
 }
