@@ -21,5 +21,8 @@ public class Main {
         }
         System.out.println("-------------------------");
         bejegyzesLista.kiir();
+        System.out.println("-------------------------");
+        bejegyzesLista.likeOsztas();
+        bejegyzesLista.kiir();
     }
 }

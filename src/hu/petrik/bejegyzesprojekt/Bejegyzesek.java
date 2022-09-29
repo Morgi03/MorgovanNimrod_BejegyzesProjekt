@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Bejegyzesek {
@@ -19,8 +20,8 @@ public class Bejegyzesek {
     }
 
     public void kiir() {
-        for (int i = 0; i < bejegyzesek.size(); i++) {
-            System.out.println(bejegyzesek.get(i) + "\n");
+        for (int i = 0; i < this.bejegyzesek.size(); i++) {
+            System.out.println(this.bejegyzesek.get(i) + "\n");
         }
     }
 
@@ -71,4 +72,25 @@ public class Bejegyzesek {
         br.close();
     }
 
+    public void likeOsztas(){
+        int NumOfLike = this.bejegyzesek.size()*20;
+        Random r = new Random();
+        int kezdoertek = 1;
+        int vegsoertek = NumOfLike;
+        int like = 0;
+        int index=0;
+        while (NumOfLike > 0){
+            if ((vegsoertek-kezdoertek) > 0) {
+                like = r.nextInt(vegsoertek - kezdoertek) + kezdoertek;
+            } else {
+                like = 1;
+            }
+            NumOfLike = NumOfLike-like;
+            vegsoertek = NumOfLike;
+            index = r.nextInt((this.bejegyzesek.size()));
+            for (int i = 0; i < like; i++) {
+                this.bejegyzesek.get(index).like();
+            }
+        }
+    }
 }
