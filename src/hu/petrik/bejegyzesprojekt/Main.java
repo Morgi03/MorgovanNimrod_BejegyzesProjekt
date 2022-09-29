@@ -1,5 +1,6 @@
 package hu.petrik.bejegyzesprojekt;
 
+import java.io.IOException;
 import java.util.List;
 
 public class Main {
@@ -12,6 +13,13 @@ public class Main {
         bejegyzesLista.addBejegyzes(b2);
         bejegyzesLista.kiir();
         bejegyzesLista.felhasznalotolValoAdatBekeres();
+        bejegyzesLista.kiir();
+        try {
+            bejegyzesLista.fileBeolvasas("bejegyzesek.csv");
+        } catch (IOException e) {
+            System.err.println("Hiba történt a fájl beolvasása során.");
+        }
+        System.out.println("-------------------------");
         bejegyzesLista.kiir();
     }
 }

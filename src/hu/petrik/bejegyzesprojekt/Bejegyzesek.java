@@ -1,5 +1,8 @@
 package hu.petrik.bejegyzesprojekt;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -53,4 +56,19 @@ public class Bejegyzesek {
             throw new RuntimeException("A beírt karakter nem természetes szám");
         }
     }
+
+    public void fileBeolvasas(String filenev) throws IOException {
+        FileReader fr = new FileReader(filenev);
+        BufferedReader br = new BufferedReader(fr);
+        String sor = br.readLine();
+        while (sor != null && !sor.equals("")){
+            String[] adatok = sor.split(";");
+            Bejegyzes b = new Bejegyzes(adatok[0],adatok[1]);
+            this.bejegyzesek.add(b);
+            sor = br.readLine();
+        }
+        fr.close();
+        br.close();
+    }
+
 }
