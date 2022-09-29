@@ -11,5 +11,7 @@ public class Main {
         bejegyzesLista.addBejegyzes(b1);
         bejegyzesLista.addBejegyzes(b2);
         bejegyzesLista.kiir();
+        bejegyzesLista.felhasznalotolValoAdatBekeres();
+        bejegyzesLista.kiir();
     }
 }
