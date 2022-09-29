@@ -28,6 +28,7 @@ public class Bejegyzes {
     public void setTartalom(String tartalom) {
         this.tartalom = tartalom;
         this.szerkesztve = LocalDateTime.now();
+        isContentEdited = true;
     }
 
     public int getLikeok() {
@@ -42,7 +43,18 @@ public class Bejegyzes {
         return szerkesztve;
     }
 
-    public void like(){
-    this.likeok++;
+    public void like() {
+        this.likeok++;
+    }
+
+    boolean isContentEdited = false;
+
+    @Override
+    public String toString() {
+        if (isContentEdited) {
+            return String.format("%s – %d - %s\nSzerkesztve: %s\n%s", this.szerzo, this.likeok, this.letrejott.toLocalDate(), this.szerkesztve.toLocalDate(), this.tartalom);
+        } else {
+            return String.format("%s – %d - %s\nSzerkesztve: %s\n%s", this.szerzo, this.likeok, this.letrejott.toLocalDate(), "A létrehozást követően még nem volt.", this.tartalom);
+        }
     }
 }
