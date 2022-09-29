@@ -1,6 +1,7 @@
 package hu.petrik.bejegyzesprojekt;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class Bejegyzes {
     private String szerzo;
