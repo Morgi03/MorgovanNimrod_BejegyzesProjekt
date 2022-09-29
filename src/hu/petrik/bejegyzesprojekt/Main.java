@@ -29,6 +29,7 @@ public class Main {
         System.out.println("\nA végleges lista:\n");
         bejegyzesLista.kiir();
         System.out.printf("\nA legnépszerűbb bejegyzés lájkjainak száma: %d\n",bejegyzesLista.legnepszerubb());
-        System.out.printf("\n%s 35-nél több lájkkal rendelkező bejegyzés.",(bejegyzesLista.vane35nelTobbLike() ? "Van" : "Nincs"));
+        System.out.printf("\n%s 35-nél több lájkkal rendelkező bejegyzés.\n",(bejegyzesLista.vane35nelTobbLike() ? "Van" : "Nincs"));
+        System.out.printf("\n%d darab olyan bejegyzés van, amely kevesebb mint 15 lájkkal rendelkezik.\n",bejegyzesLista.tizenotnelKevesebbLike());
     }
 }

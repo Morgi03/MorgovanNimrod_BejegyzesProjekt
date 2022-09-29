@@ -121,6 +121,14 @@ public class Bejegyzesek {
         }
         return van;
     }
-
+    public int tizenotnelKevesebbLike(){
+        int count =0;
+        for (Bejegyzes b :this.bejegyzesek) {
+            if (b.getLikeok()<15){
+                count++;
+            }
+        }
+        return count;
+    }
 
 }
