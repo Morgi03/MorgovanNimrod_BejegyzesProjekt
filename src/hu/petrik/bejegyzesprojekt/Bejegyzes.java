@@ -1,7 +1,6 @@
 package hu.petrik.bejegyzesprojekt;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 public class Bejegyzes {
     private String szerzo;
@@ -48,14 +47,14 @@ public class Bejegyzes {
         this.likeok++;
     }
 
-   private boolean isContentEdited = false;
+    private boolean isContentEdited = false;
 
     @Override
     public String toString() {
         if (isContentEdited) {
-            return String.format("%s – %d - %s\nSzerkesztve: %s\n%s", this.szerzo, this.likeok, this.letrejott.toLocalDate()+" "+this.letrejott.toLocalTime().getHour()+":"+this.letrejott.toLocalTime().getMinute(), this.szerkesztve.toLocalDate()+" "+this.szerkesztve.toLocalTime().getHour()+":"+this.szerkesztve.toLocalTime().getMinute(), this.tartalom);
+            return String.format("%s – %d - %s\nSzerkesztve: %s\n%s", this.szerzo, this.likeok, this.letrejott.toLocalDate() + " " + this.letrejott.toLocalTime().getHour() + ":" + this.letrejott.toLocalTime().getMinute(), this.szerkesztve.toLocalDate() + " " + this.szerkesztve.toLocalTime().getHour() + ":" + this.szerkesztve.toLocalTime().getMinute(), this.tartalom);
         } else {
-            return String.format("%s – %d - %s\nSzerkesztve: %s\n%s", this.szerzo, this.likeok, this.letrejott.toLocalDate()+" "+this.letrejott.toLocalTime().getHour()+":"+this.letrejott.toLocalTime().getMinute(), "A létrehozást követően még nem volt.", this.tartalom);
+            return String.format("%s – %d - %s\nSzerkesztve: %s\n%s", this.szerzo, this.likeok, this.letrejott.toLocalDate() + " " + this.letrejott.toLocalTime().getHour() + ":" + this.letrejott.toLocalTime().getMinute(), "A létrehozást követően még nem volt.", this.tartalom);
         }
     }
 }

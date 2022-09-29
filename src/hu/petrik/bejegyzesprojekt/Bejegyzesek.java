@@ -3,10 +3,8 @@ package hu.petrik.bejegyzesprojekt;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Bejegyzesek {
     private List<Bejegyzes> bejegyzesek;
@@ -103,32 +101,47 @@ public class Bejegyzesek {
 
     // 3.feladat függvényei:
 
-    public int legnepszerubb(){
+    public int legnepszerubb() {
         int max = 0;
         for (int i = 0; i < this.bejegyzesek.size(); i++) {
-            if (this.bejegyzesek.get(i).getLikeok()>this.bejegyzesek.get(max).getLikeok()){
+            if (this.bejegyzesek.get(i).getLikeok() > this.bejegyzesek.get(max).getLikeok()) {
                 max = i;
             }
         }
         return this.bejegyzesek.get(max).getLikeok();
     }
-    public boolean vane35nelTobbLike(){
+
+    public boolean vane35nelTobbLike() {
         boolean van = false;
-        for (Bejegyzes b :this.bejegyzesek) {
-            if (b.getLikeok()>35){
+        for (Bejegyzes b : this.bejegyzesek) {
+            if (b.getLikeok() > 35) {
                 van = true;
             }
         }
         return van;
     }
-    public int tizenotnelKevesebbLike(){
-        int count =0;
-        for (Bejegyzes b :this.bejegyzesek) {
-            if (b.getLikeok()<15){
+
+    public int tizenotnelKevesebbLike() {
+        int count = 0;
+        for (Bejegyzes b : this.bejegyzesek) {
+            if (b.getLikeok() < 15) {
                 count++;
             }
         }
         return count;
     }
 
+    static class bejegyzesOsszehasonlito implements Comparator<Bejegyzes> {
+        @Override
+        public int compare(Bejegyzes b1, Bejegyzes b2) {
+            return b2.getLikeok() - b1.getLikeok();
+        }
+    }
+
+    public void rendezesCsokkenoSorrendbe() {
+        List<Bejegyzes> rendezett = this.bejegyzesek.stream().sorted(new bejegyzesOsszehasonlito()).collect(Collectors.toList());
+        for (int i = 0; i < rendezett.size(); i++) {
+            System.out.println(rendezett.get(i) + "\n");
+        }
+    }
 }
