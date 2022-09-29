@@ -62,9 +62,9 @@ public class Bejegyzesek {
         FileReader fr = new FileReader(filenev);
         BufferedReader br = new BufferedReader(fr);
         String sor = br.readLine();
-        while (sor != null && !sor.equals("")){
+        while (sor != null && !sor.equals("")) {
             String[] adatok = sor.split(";");
-            Bejegyzes b = new Bejegyzes(adatok[0],adatok[1]);
+            Bejegyzes b = new Bejegyzes(adatok[0], adatok[1]);
             this.bejegyzesek.add(b);
             sor = br.readLine();
         }
@@ -72,25 +72,32 @@ public class Bejegyzesek {
         br.close();
     }
 
-    public void likeOsztas(){
-        int NumOfLike = this.bejegyzesek.size()*20;
+    public void likeOsztas() {
+        int NumOfLike = this.bejegyzesek.size() * 20;
         Random r = new Random();
         int kezdoertek = 1;
         int vegsoertek = NumOfLike;
         int like = 0;
-        int index=0;
-        while (NumOfLike > 0){
-            if ((vegsoertek-kezdoertek) > 0) {
+        int index = 0;
+        while (NumOfLike > 0) {
+            if ((vegsoertek - kezdoertek) > 0) {
                 like = r.nextInt(vegsoertek - kezdoertek) + kezdoertek;
             } else {
                 like = 1;
             }
-            NumOfLike = NumOfLike-like;
+            NumOfLike = NumOfLike - like;
             vegsoertek = NumOfLike;
             index = r.nextInt((this.bejegyzesek.size()));
             for (int i = 0; i < like; i++) {
                 this.bejegyzesek.get(index).like();
             }
         }
+    }
+
+    public void masodikTartalomModositasa() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("\nKérlek add meg a tartalmat:");
+        String tartalom = sc.nextLine();
+        this.bejegyzesek.get(1).setTartalom(tartalom);
     }
 }

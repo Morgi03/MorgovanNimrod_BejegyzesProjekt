@@ -11,18 +11,22 @@ public class Main {
         Bejegyzes b2 = new Bejegyzes("Svájci Arnold","Jó edzeni.");
         bejegyzesLista.addBejegyzes(b1);
         bejegyzesLista.addBejegyzes(b2);
-        bejegyzesLista.kiir();
+      //  bejegyzesLista.kiir();
         bejegyzesLista.felhasznalotolValoAdatBekeres();
-        bejegyzesLista.kiir();
+      //  bejegyzesLista.kiir();
         try {
             bejegyzesLista.fileBeolvasas("bejegyzesek.csv");
         } catch (IOException e) {
             System.err.println("Hiba történt a fájl beolvasása során.");
         }
-        System.out.println("-------------------------");
-        bejegyzesLista.kiir();
-        System.out.println("-------------------------");
+       // System.out.println("-------------------------");
+       // bejegyzesLista.kiir();
+       // System.out.println("-------------------------");
         bejegyzesLista.likeOsztas();
+       // bejegyzesLista.kiir();
+       // System.out.println("-------------------------");
+        bejegyzesLista.masodikTartalomModositasa();
+        System.out.println("\nA végleges lista:\n");
         bejegyzesLista.kiir();
     }
 }
