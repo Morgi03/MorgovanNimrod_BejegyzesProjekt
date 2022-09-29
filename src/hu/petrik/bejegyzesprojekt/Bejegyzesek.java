@@ -112,5 +112,15 @@ public class Bejegyzesek {
         }
         return this.bejegyzesek.get(max).getLikeok();
     }
+    public boolean vane35nelTobbLike(){
+        boolean van = false;
+        for (Bejegyzes b :this.bejegyzesek) {
+            if (b.getLikeok()>35){
+                van = true;
+            }
+        }
+        return van;
+    }
+
 
 }
