@@ -1,8 +1,6 @@
 package hu.petrik.bejegyzesprojekt;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -142,6 +140,27 @@ public class Bejegyzesek {
         List<Bejegyzes> rendezett = this.bejegyzesek.stream().sorted(new bejegyzesOsszehasonlito()).collect(Collectors.toList());
         for (int i = 0; i < rendezett.size(); i++) {
             System.out.println(rendezett.get(i) + "\n");
+        }
+
+        // file-ba való kiirás
+        try {
+            File f = new File("bejegyzesek_rendezett.txt");
+            if (f.createNewFile()) {
+                System.out.println("A(z) " + f.getName() + " file sikeresen létrehozva.");
+            } else {
+                System.err.println("A file már létezik.");
+            }
+        } catch (IOException e) {
+            System.err.println("Hiba történt a file létrehozása során.");
+        }
+        try {
+            FileWriter fw = new FileWriter("bejegyzesek_rendezett.txt");
+            for (int i = 0; i < rendezett.size(); i++) {
+                fw.write(rendezett.get(i) + "\n\n");
+            }
+            fw.close();
+        } catch (IOException e) {
+            System.err.println("Hiba történt a file-ba való kiiratás során.");
         }
     }
 }
